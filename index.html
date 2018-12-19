@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Script Template</title>
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+    <div class="leftEtch">
+    </div>
+    <div class="bottomEtch">
+    </div>
+    <div class="rightEtch">
+    </div>
+    <div class="topEtch">
+    </div>
+    <div class="nob1">
+        <p class="up1">&uarr;</p>
+    </div>
+    <div class="nob2">
+        <p class="up2">&darr;</p>
+    </div>
+    <div class="etch etchGrid">
+    </div>
+    <div class="button">
+        <button id="button1">Clear Etch-N-Sketch</button>
+    </div>
+
+    <script>
+
+    let gridRef = 0; //how the size of the etch and sketch is kept track of
+    let x = 1; //our grid size multiplier
+    let y = ((16*x)*(18*x));
+    let z = 0; //keeps track of which nob was pressed. -1 for down and +1 for up
+    let increaseRow = ("repeat(" + 18*x + ", " + 3.625 /x + "vh);");
+    let increaseColumn = ("repeat(" + 16*x + ", " + 1.8125 /x + "vw);");
+
+    for (let i = 0; i < 288; i++) {
+        let box = document.createElement('div');
+        box.classList.add("boxAll");
+        document.querySelector(".etch").appendChild(box);
+    }
+
+    let scratchPad = document.querySelector(".etch")
+    scratchPad.onmouseover = function(event) {
+        let target = event.target;
+        target.style.background = "black";
+    }
+
+    document.getElementById("button1").addEventListener("click", clear);
+    let boxAll = document.getElementsByClassName('boxAll');
+
+    function clear() {
+        for(let i = 0; i < boxAll.length; i++) {
+            boxAll[i].style.background = "white";
+        }
+    }
+
+    function changeGrid() {
+        while (scratchPad.firstChild) {
+            scratchPad.removeChild(scratchPad.firstChild);
+        }
+        if (z == "nob1") {
+            gridSizeInc();
+        }   else if (z == "nob2") {
+            gridSizeDec();
+        }
+        gridMultiplier();
+        increaseCSS();
+        for (let i = 0; i < y; i++) {
+            let box = document.createElement('div');
+            box.classList.add("boxAll");
+            document.querySelector(".etch").appendChild(box);
+        }
+    }
+
+    //A way to keep track of current grid multiplier
+
+    function gridSizeInc() {
+        gridRef++;
+    }
+
+    function gridSizeDec() {
+        gridRef--;
+    }
+
+    function gridMultiplier() {
+        x = Math.pow(2, gridRef);
+        increaseRow = ("repeat(" + 18*x + ", " + 3.625 /x + "vh);");
+        increaseColumn = ("repeat(" + 16*x + ", " + 1.8125 /x + "vw);");
+        y = ((16*x)*(18*x));
+    }
+
+    //End of grid multiplier
+
+    document.querySelector(".nob1").addEventListener("click", function() {
+        z = this.className;
+        changeGrid();
+    });
+    document.querySelector(".nob2").addEventListener("click", function() {
+        z = this.className;
+        changeGrid();
+    });
+
+    function increaseCSS() {
+        document.querySelector(".etchGrid").style.cssText = ("display: grid; grid-template-rows: " + increaseRow + "; grid-template-columns: " + increaseColumn + ";");
+    }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    position: absolute;
+}
+
+.leftEtch {
+    position: absolute;
+    background-color: red;
+    padding: 40vh 1.5vw 40vh 1.5vw;
+    top: 5vh;
+    left: 30vw;
+}
+
+.bottomEtch {
+    position: absolute;
+    background-color: red;
+    padding: 7vh 18vw 7vh 17vw;
+    top: 75vh;
+    left: 30vw;
+}
+
+.rightEtch {
+    position: absolute;
+    background-color: red;
+    padding: 40vh 1.5vw 40vh 1.5vw;
+    top: 5vh;
+    left: 62vw;
+}
+
+.topEtch {
+    position: absolute;
+    background-color: red;
+    padding: 2.5vh 17vw 2.5vh 17vw;
+    top: 5vh;
+    left: 30vw;
+}
+
+.nob1 {
+    position: absolute;
+    height: 9vh;
+    width: 4.5vw;
+    background-color: #E5E3E2;
+    border-radius: 50%;
+    top: 78vh;
+    left: 32vw;
+    text-align: center;
+}
+
+.nob2 {
+    position: absolute;
+    height: 9vh;
+    width: 4.5vw;
+    background-color: #E5E3E2;
+    border-radius: 50%;
+    top: 78vh;
+    left: 58.6vw;
+    text-align: center;
+}
+
+/*width of etch is 14.5vh and */
+.etch {
+    position: absolute;
+    background-color: white;
+    left: 33vw;
+    top: 10vh;
+}
+
+.etchGrid {
+    display: grid;
+    grid-template-rows: repeat(18, 3.625vh);
+    grid-template-columns: repeat(16, 1.8125vw);
+}
+
+.etch > div {
+    background-color: white;
+    padding: 2px;
+}
+
+.boxAll {
+    border: 1px solid black;
+}
+
+#button1 {
+    position: absolute;
+    left: 43.5vw;
+    top: 80vh;
+    text-align: center;
+    white-space: nowrap;
+    width: 8vw;
+    height: 2vh;
+    font-size: 0.70vw;
+}
+
+.up1 {
+    position: absolute;
+    left: 1.5vw;
+    top: -3.3vh;
+    z-index: 1;
+    font-size: 5vh;
+}
+
+.nob1:hover {
+    border: 2px solid blue;
+}
+
+.nob2:hover {
+    border: 2px solid blue;
+}
+
+.up2 {
+    position: absolute;
+    left: 1.55vw;
+    top: -3.3vh;
+    z-index: 1;
+    font-size: 5vh;
+}
+
+
+
+
+
+
