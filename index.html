@@ -77,11 +77,15 @@
     //A way to keep track of current grid multiplier
 
     function gridSizeInc() {
-        gridRef++;
+        if (gridRef <= 2) {
+            gridRef++;
+        } 
     }
 
     function gridSizeDec() {
-        gridRef--;
+        if (gridRef >= 0) {
+            gridRef--;
+        } 
     }
 
     function gridMultiplier() {
