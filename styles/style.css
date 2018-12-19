@@ -94,6 +94,17 @@ html {
     font-size: 0.70vw;
 }
 
+#button2 {
+    position: absolute;
+    left: 43.5vw;
+    top: 82vh;
+    text-align: center;
+    white-space: nowrap;
+    width: 8vw;
+    height: 2vh;
+    font-size: 0.70vw;
+}
+
 .up1 {
     position: absolute;
     left: 1.5vw;
